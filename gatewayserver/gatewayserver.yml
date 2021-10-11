@@ -13,13 +13,13 @@ server:
       gateway:
         routes:
         - id: product
-          uri: http://localhost:8081
+          uri: lb://product
           predicates:
           - Path=/product/**
           filters:
           - RewritePath=/product/(?<path>.*), /$\{path}
         - id: review
-          uri: http://localhost:8082
+          uri: lb://review
           predicates:
           - Path=/review/**
           filters:
